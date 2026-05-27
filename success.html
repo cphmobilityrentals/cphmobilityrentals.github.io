@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Received | CPH Mobility Rentals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --green-dark: #2d6a4f;
+            --green-mid: #40916c;
+            --green-light: #74c69d;
+            --green-pale: #d8f3dc;
+            --co-blue: #1a4f8a;
+            --co-red: #c0392b;
+            --cream: #f9f7f2;
+            --dark: #1a2e1e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .co-strip-top {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--co-blue) 25%, var(--co-red) 25%, var(--co-red) 40%, #f9c740 40%, #f9c740 60%, var(--co-red) 60%, var(--co-red) 75%, var(--co-blue) 75%);
+        }
+
+        .card {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(45,106,79,0.12);
+            max-width: 540px;
+            width: 100%;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .icon-circle {
+            width: 90px; height: 90px;
+            background: var(--green-pale);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.8rem;
+            animation: pop 0.5s 0.3s cubic-bezier(0.68,-0.55,0.27,1.55) both;
+        }
+        @keyframes pop {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .icon-circle i {
+            font-size: 2.8rem;
+            color: var(--green-dark);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--green-dark);
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tagline {
+            color: #5a7060;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .steps {
+            background: var(--green-pale);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .steps-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--green-dark);
+            margin-bottom: 1rem;
+        }
+        .steps ul { list-style: none; }
+        .steps ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .steps ul li:last-child { margin-bottom: 0; }
+        .step-num-small {
+            width: 24px; height: 24px;
+            background: var(--green-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--green-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+        .btn:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+        .secondary {
+            font-size: 0.88rem;
+            color: #5a7060;
+        }
+        .secondary a {
+            color: var(--green-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .secondary a:hover { text-decoration: underline; }
+
+        .divider { height: 1px; background: #e8f0e9; margin: 1.5rem 0; }
+    </style>
+</head>
+<body>
+    <div class="co-strip-top"></div>
+
+    <div class="card">
+        <div class="icon-circle">
+            <i class="fas fa-check"></i>
+        </div>
+        <h1>You're All Set!</h1>
+        <p class="tagline">
+            We've received your request and will be in touch shortly — usually within a few hours — to confirm availability and next steps.
+        </p>
+
+        <div class="steps">
+            <div class="steps-title">What happens next</div>
+            <ul>
+                <li>
+                    <div class="step-num-small">1</div>
+                    <span>We confirm scooter availability for your dates and location</span>
+                </li>
+                <li>
+                    <div class="step-num-small">2</div>
+                    <span>We review your rental details and answer any remaining questions</span>
+                </li>
+                <li>
+                    <div class="step-num-small">3</div>
+                    <span>We finalize delivery, collect payment, and get your scooter on its way</span>
+                </li>
+            </ul>
+        </div>
+
+        <a href="/" class="btn">← Back to Homepage</a>
+
+        <div class="divider"></div>
+
+        <div class="secondary">
+            Need something urgent?&nbsp;
+            <a href="tel:+13035007444">Call or text (303) 500-7444</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobility Scooter Rentals in Denver | CPH Mobility Rentals</title>
+    <meta name="description" content="Clean, reliable mobility scooter rentals delivered to your door in Central Park, Park Hill, Northfield, and NE Denver. From $239 for 2 weeks. No deposit required.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --green-dark: #2d6a4f;
+            --green-mid: #40916c;
+            --green-light: #74c69d;
+            --green-pale: #d8f3dc;
+            --co-blue: #1a4f8a;
+            --co-red: #c0392b;
+            --cream: #f9f7f2;
+            --dark: #1a2e1e;
+            --text: #2c3e2d;
+            --text-light: #5a7060;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'DM Sans', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text); 
+            overflow-x: hidden; 
+            background: var(--cream);
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* ── HEADER ── */
+        .co-strip-fixed {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--co-blue) 25%, var(--co-red) 25%, var(--co-red) 40%, #f9c740 40%, #f9c740 60%, var(--co-red) 60%, var(--co-red) 75%, var(--co-blue) 75%);
+            z-index: 1001;
+        }
+        header { 
+            background: rgba(255,255,255,0.96); 
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 5px; 
+            z-index: 1000; 
+            box-shadow: 0 2px 20px rgba(45,106,79,0.12); 
+            border-bottom: 3px solid var(--green-light);
+        }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+        }
+        .logo img { height: 80px; width: auto; display: block; }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--green-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .logo-text span { display: block; font-size: 0.75rem; font-family: 'DM Sans', sans-serif; color: var(--text-light); font-weight: 500; letter-spacing: 0.05em; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: var(--green-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--green-mid); }
+        .phone-btn { 
+            background: var(--green-dark); 
+            padding: 0.75rem 1.4rem; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            text-decoration: none; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .phone-btn:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+        /* ── HERO ── */
+        .hero { 
+            background: linear-gradient(rgba(26,46,30,0.72), rgba(26,46,30,0.82)), url('background.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            min-height: 88vh; 
+            display: flex; 
+            align-items: center; 
+            color: white; 
+            padding-top: 115px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom right, transparent 49%, var(--cream) 50%);
+        }
+        .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-badge {
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 { font-size: 3.4rem; line-height: 1.1; margin-bottom: 1rem; font-weight: 800; }
+        .hero h1 em { font-style: normal; color: var(--green-light); }
+        .hero .subheadline { font-size: 1.15rem; margin-bottom: 1.8rem; opacity: 0.9; font-weight: 300; line-height: 1.7; }
+        .hero-list { list-style: none; margin-bottom: 2rem; }
+        .hero-list li { font-size: 1rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 10px; font-weight: 400; }
+        .hero-list i { color: var(--green-light); font-size: 1rem; flex-shrink: 0; }
+        .cta-main { 
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--dark); 
+            padding: 1.1rem 2.4rem; 
+            border-radius: 50px; 
+            font-size: 1.15rem; 
+            font-weight: 700; 
+            text-decoration: none; 
+            transition: all 0.3s ease;
+            margin-bottom: 0.6rem;
+            box-shadow: 0 6px 20px rgba(116,198,157,0.4);
+        }
+        .cta-main:hover { background: white; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(116,198,157,0.5); }
+        .hero-tiny-line { font-size: 0.85rem; opacity: 0.75; font-weight: 300; }
+
+        /* Hero right side — pricing card */
+        .hero-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .hero-plan { background: rgba(255,255,255,0.12); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.15); }
+        .hero-plan:last-of-type { margin-bottom: 0; }
+        .hero-plan-name { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 0.3rem; font-weight: 600; }
+        .hero-plan-price { font-size: 2.2rem; font-weight: 800; color: var(--green-light); }
+        .hero-plan-price small { font-size: 0.9rem; opacity: 0.8; font-weight: 300; }
+        .hero-card-note { margin-top: 1.2rem; font-size: 0.8rem; opacity: 0.7; }
+
+        /* ── SECTIONS ── */
+        .section { padding: 5rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-tag { 
+            display: inline-block; 
+            background: var(--green-pale); 
+            color: var(--green-dark); 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            letter-spacing: 0.12em; 
+            text-transform: uppercase; 
+            padding: 0.35rem 1rem; 
+            border-radius: 50px; 
+            margin-bottom: 1rem; 
+        }
+        .section-title { font-size: 2.6rem; margin-bottom: 0.8rem; color: var(--green-dark); }
+        .section-subtitle { font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-light); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .text-center { text-align: center; }
+
+        /* ── HOW IT WORKS ── */
+        .how-bg { background: white; }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: calc(16.66% + 1rem);
+            right: calc(16.66% + 1rem);
+            height: 2px;
+            background: linear-gradient(to right, var(--green-light), var(--green-pale));
+            z-index: 0;
+        }
+        .step { text-align: center; position: relative; z-index: 1; }
+        .step-num {
+            width: 80px; height: 80px;
+            background: var(--green-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; font-weight: 700;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--cream);
+            box-shadow: 0 8px 24px rgba(45,106,79,0.25);
+        }
+        .step h3 { font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--green-dark); }
+        .step p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+        .step-icon { font-size: 2rem; margin-bottom: 1rem; color: var(--green-mid); }
+
+        /* ── PRICING ── */
+        .pricing-bg { background: var(--cream); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto; }
+        .pricing-card { 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 24px; 
+            box-shadow: 0 8px 30px rgba(45,106,79,0.08); 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column;
+            border: 2px solid transparent;
+            transition: border-color 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--green-dark), var(--green-light));
+        }
+        .pricing-card:hover { border-color: var(--green-light); transform: translateY(-6px); }
+        .pricing-card.featured { border-color: var(--green-mid); transform: scale(1.03); }
+        .pricing-card.featured::before { background: linear-gradient(to right, var(--green-mid), var(--green-light)); }
+        .featured-badge {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: var(--green-dark);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+        }
+        .plan-name { font-size: 1.1rem; font-weight: 700; color: var(--text-light); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+        .price { font-size: 3.2rem; font-weight: 800; color: var(--green-dark); line-height: 1; }
+        .price small { font-size: 1rem; color: var(--text-light); font-weight: 400; }
+        .price-duration { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem; }
+        .benefits-list { list-style: none; margin: 1rem 0 1.8rem; text-align: left; flex-grow: 1; }
+        .benefits-list li { margin-bottom: 0.7rem; padding-left: 28px; position: relative; font-size: 0.95rem; color: var(--text); }
+        .benefits-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green-mid); font-weight: 700; }
+        .plan-select-btn { 
+            background: var(--green-dark); 
+            color: white; 
+            padding: 1rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            transition: 0.3s; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .plan-select-btn:hover { background: var(--green-mid); transform: translateY(-3px); }
+        .plan-select-btn.featured-btn { background: var(--green-mid); }
+
+        /* ── WHAT'S INCLUDED ── */
+        .included-bg { background: var(--green-dark); color: white; }
+        .included-bg .section-title { color: white; }
+        .included-bg .section-subtitle { color: rgba(255,255,255,0.7); }
+        .included-bg .section-tag { background: rgba(255,255,255,0.15); color: white; }
+        .included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .included-item { 
+            background: rgba(255,255,255,0.08); 
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 1.8rem; 
+            border-radius: 16px; 
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .included-item:hover { background: rgba(255,255,255,0.14); }
+        .included-item i { font-size: 2rem; color: var(--green-light); margin-bottom: 1rem; display: block; }
+        .included-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .included-item p { font-size: 0.88rem; opacity: 0.75; line-height: 1.6; }
+
+        /* ── SERVICE AREA ── */
+        .area-bg { background: white; }
+        .area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .area-map { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(45,106,79,0.2); }
+        .area-map img { width: 100%; display: block; }
+        .area-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 1.5rem 0 2rem; }
+        .area-list li { 
+            background: var(--green-pale); 
+            padding: 0.6rem 1rem; 
+            border-radius: 8px; 
+            font-weight: 600; 
+            color: var(--green-dark); 
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .area-list li i { color: var(--green-mid); font-size: 0.8rem; }
+        .area-note { background: #fff8e6; border-left: 4px solid #f0b429; padding: 1rem 1.2rem; border-radius: 8px; font-size: 0.9rem; color: #7a5c00; }
+
+        /* ── FAQ ── */
+        .faq-bg { background: var(--cream); }
+        .faq-container { max-width: 860px; margin: 0 auto; }
+        .faq-item { 
+            background: white; 
+            border: 1px solid #e8f0e9; 
+            border-radius: 12px; 
+            margin-bottom: 10px; 
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .faq-item:hover { box-shadow: 0 4px 16px rgba(45,106,79,0.1); }
+        .faq-question { 
+            padding: 1.2rem 1.5rem; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            font-weight: 600; 
+            color: var(--green-dark); 
+            text-align: left;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+        .faq-answer { 
+            padding: 0 1.5rem; 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: all 0.35s ease; 
+            background: #f6fbf7; 
+            text-align: left; 
+            line-height: 1.8; 
+            color: var(--text);
+            font-size: 0.97rem;
+        }
+        .faq-item.active .faq-answer { padding: 1.2rem 1.5rem; max-height: 600px; }
+        .faq-item.active .chevron { transform: rotate(180deg); color: var(--green-mid); }
+        .chevron { transition: transform 0.3s ease; color: var(--text-light); flex-shrink: 0; }
+
+        /* ── CONTACT ── */
+        .contact-bg { background: white; }
+        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .contact-info h2 { font-size: 2.2rem; color: var(--green-dark); margin-bottom: 1rem; }
+        .contact-info p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+        .contact-detail i { color: var(--green-mid); font-size: 1.1rem; width: 24px; text-align: center; }
+        .contact-detail a { color: var(--green-dark); text-decoration: none; font-weight: 600; }
+        .contact-detail a:hover { color: var(--green-mid); }
+
+        .contact-form-box { 
+            background: var(--green-dark); 
+            padding: 2.5rem; 
+            border-radius: 24px; 
+            color: white; 
+        }
+        .contact-form-box h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.4rem; }
+        .contact-form-box .form-sub { font-size: 0.9rem; opacity: 0.75; margin-bottom: 1.8rem; }
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 0.85rem; font-weight: 600; opacity: 0.85; }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; 
+            padding: 0.8rem 1rem; 
+            border-radius: 10px; 
+            border: 1px solid rgba(255,255,255,0.15); 
+            background: rgba(255,255,255,0.1); 
+            color: white; 
+            font-size: 0.95rem; 
+            font-family: 'DM Sans', sans-serif;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
+            outline: none; 
+            border-color: var(--green-light); 
+            background: rgba(255,255,255,0.15);
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder { opacity: 0.5; }
+        .form-group select option { background: var(--green-dark); color: white; }
+        .submit-btn { 
+            background: var(--green-light); 
+            color: var(--dark); 
+            width: 100%; 
+            border: none; 
+            padding: 1rem; 
+            font-weight: 700; 
+            cursor: pointer; 
+            border-radius: 10px; 
+            font-size: 1rem; 
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s;
+        }
+        .submit-btn:hover { background: white; transform: translateY(-2px); }
+
+        /* Colorado flag accent strip */
+        .co-strip { 
+            height: 6px; 
+            background: linear-gradient(to right, var(--co-blue) 25%, var(--co-red) 25%, var(--co-red) 40%, #f9c740 40%, #f9c740 60%, var(--co-red) 60%, var(--co-red) 75%, var(--co-blue) 75%);
+        }
+
+        /* ── FOOTER ── */
+        footer { background: var(--dark); color: white; padding: 2.5rem 0; text-align: center; }
+        footer p { opacity: 0.6; font-size: 0.9rem; }
+        footer a { color: var(--green-light); text-decoration: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-card { display: none; }
+            .area-layout { grid-template-columns: 1fr; }
+            .contact-layout { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .steps-grid::before { display: none; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .logo img { height: 56px; }
+            .logo-text { font-size: 1.1rem; }
+            .hero { padding-top: 100px; min-height: 80vh; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2rem; }
+            .pricing-card.featured { transform: none; }
+            .area-list { grid-template-columns: 1fr; }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero .hero-badge, .hero h1, .hero .subheadline, .hero-list, .cta-main, .hero-tiny-line {
+            animation: fadeUp 0.6s ease both;
+        }
+        .hero .hero-badge { animation-delay: 0.1s; }
+        .hero h1 { animation-delay: 0.2s; }
+        .hero .subheadline { animation-delay: 0.35s; }
+        .hero-list { animation-delay: 0.5s; }
+        .cta-main { animation-delay: 0.65s; }
+        .hero-tiny-line { animation-delay: 0.75s; }
+    </style>
+</head>
+<body>
+
+    <div class="co-strip-fixed"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.jpg" alt="Central Park Hill Mobility Rentals Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <div class="logo-text" style="display:none;">CPH Mobility<span>Rentals · Denver, CO</span></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:+13035007444" class="phone-btn"><i class="fas fa-phone"></i> (303) 500-7444</a>
+        </nav>
+    </header>
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="home">
+        <div class="hero-inner">
+            <div>
+                <div class="hero-badge"><i class="fas fa-map-marker-alt"></i> &nbsp;Serving Central Park, Park Hill & NE Denver</div>
+                <h1>Get Moving Again — <em>Without the Hassle</em></h1>
+                <p class="subheadline">Clean, fully charged mobility scooters delivered straight to your door. Perfect for visiting grandparents, post-surgery recovery, or anyone who wants to keep up with the family.</p>
+                <ul class="hero-list">
+                    <li><i class="fas fa-check-circle"></i> Delivered clean, charged & ready to go</li>
+                    <li><i class="fas fa-check-circle"></i> Disassembles to fit in most SUVs & minivans</li>
+                    <li><i class="fas fa-check-circle"></i> No deposit. No credit check.</li>
+                    <li><i class="fas fa-check-circle"></i> Local Denver support — real people, real help</li>
+                </ul>
+                <a href="#contact" class="cta-main">Check Availability</a>
+                <p class="hero-tiny-line">Same-day or next-day delivery available in the core service area</p>
+            </div>
+            <div class="hero-card">
+                <h3>Simple, Honest Pricing</h3>
+                <div class="hero-plan">
+                    <div class="hero-plan-name">2-Week Rental</div>
+                    <div class="hero-plan-price">$239 <small>flat</small></div>
+                </div>
+                <div class="hero-plan">
+                    <div class="hero-plan-name">1-Month Rental</div>
+                    <div class="hero-plan-price">$299 <small>flat</small></div>
+                </div>
+                <p class="hero-card-note">Delivery, charger & pickup all included. No hidden fees.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section class="section how-bg" id="how">
+        <div class="container">
+            <div class="text-center">
+                <div class="section-tag">Simple Process</div>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Three easy steps and you're rolling — literally.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Fill Out the Form</h3>
+                    <p>Tell us your dates, delivery address, and a bit about the rider. We'll confirm availability and get everything set up.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-icon"><i class="fas fa-truck"></i></div>
+                    <h3>We Deliver to Your Door</h3>
+                    <p>We bring a fully cleaned, charged, and inspected scooter right to your home, hotel, rehab center, or short-term rental.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-icon"><i class="fas fa-smile-beam"></i></div>
+                    <h3>Ride & Enjoy</h3>
+                    <p>Hit the Denver Zoo, Botanic Gardens, Red Rocks, DIA, or just the neighborhood. We pick it up when you're done.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PRICING ── -->
+    <section class="section pricing-bg" id="pricing">
+        <div class="container">
+            <div class="text-center">
+                <div class="section-tag">Pricing</div>
+                <h2 class="section-title">Simple, All-In Pricing</h2>
+                <p class="section-subtitle">No deposits. No hidden fees. What you see is what you pay.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">2-Week Rental</div>
+                    <div class="price">$239</div>
+                    <div class="price-duration">for 14 days</div>
+                    <ul class="benefits-list">
+                        <li>Free delivery & pickup</li>
+                        <li>Fully cleaned & sanitized</li>
+                        <li>Fully charged on arrival</li>
+                        <li>Charger included</li>
+                        <li>Fits in most SUVs & minivans</li>
+                        <li>Support if anything comes up</li>
+                    </ul>
+                    <button class="plan-select-btn" onclick="selectPlan('2-Week Rental ($239)')">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Best Value</div>
+                    <div class="plan-name">1-Month Rental</div>
+                    <div class="price">$299</div>
+                    <div class="price-duration">for 30 days</div>
+                    <ul class="benefits-list">
+                        <li>Free delivery & pickup</li>
+                        <li>Fully cleaned & sanitized</li>
+                        <li>Fully charged on arrival</li>
+                        <li>Charger included</li>
+                        <li>Fits in most SUVs & minivans</li>
+                        <li>Support if anything comes up</li>
+                        <li>More time = more flexibility</li>
+                    </ul>
+                    <button class="plan-select-btn featured-btn" onclick="selectPlan('1-Month Rental ($299)')">Get Started</button>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top: 2rem; color: var(--text-light); font-size: 0.9rem;">Minimum rental is 2 weeks. Need something different? <a href="#contact" style="color: var(--green-dark); font-weight: 600;">Contact us</a> and we'll work something out.</p>
+        </div>
+    </section>
+
+    <!-- ── WHAT'S INCLUDED ── -->
+    <section class="section included-bg">
+        <div class="container">
+            <div class="text-center">
+                <div class="section-tag">Everything Included</div>
+                <h2 class="section-title">Everything You Need. Nothing Extra.</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Every rental comes fully set up and ready to go — no surprises.</p>
+            </div>
+            <div class="included-grid">
+                <div class="included-item">
+                    <i class="fas fa-battery-full"></i>
+                    <h4>Fully Charged</h4>
+                    <p>Scooter arrives with a full charge so you can start right away.</p>
+                </div>
+                <div class="included-item">
+                    <i class="fas fa-spray-can"></i>
+                    <h4>Cleaned & Sanitized</h4>
+                    <p>Every unit is thoroughly cleaned and sanitized before delivery.</p>
+                </div>
+                <div class="included-item">
+                    <i class="fas fa-plug"></i>
+                    <h4>Charger Included</h4>
+                    <p>We leave the charger with you for the entire rental period.</p>
+                </div>
+                <div class="included-item">
+                    <i class="fas fa-truck"></i>
+                    <h4>Delivery & Pickup</h4>
+                    <p>We come to you — home, hotel, rehab center, or short-term rental.</p>
+                </div>
+                <div class="included-item">
+                    <i class="fas fa-headset"></i>
+                    <h4>Local Support</h4>
+                    <p>We're reachable by phone or text if anything comes up during your rental.</p>
+                </div>
+                <div class="included-item">
+                    <i class="fas fa-car"></i>
+                    <h4>Travel-Ready</h4>
+                    <p>Disassembles to fit in most SUVs, minivans, and hatchbacks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SERVICE AREA ── -->
+    <section class="section area-bg" id="area">
+        <div class="container">
+            <div class="area-layout">
+                <div>
+                    <div class="section-tag">Service Area</div>
+                    <h2 class="section-title">Rooted in the Neighborhood</h2>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.8;">We're based in Central Park and serve the broader NE Denver community. Our core service area includes:</p>
+                    <ul class="area-list">
+                        <li><i class="fas fa-circle"></i> Central Park</li>
+                        <li><i class="fas fa-circle"></i> Park Hill</li>
+                        <li><i class="fas fa-circle"></i> Northfield</li>
+                        <li><i class="fas fa-circle"></i> NE Denver</li>
+                        <li><i class="fas fa-circle"></i> DIA / Airport Area</li>
+                        <li><i class="fas fa-circle"></i> Aurora</li>
+                        <li><i class="fas fa-circle"></i> Commerce City</li>
+                        <li><i class="fas fa-circle"></i> Thornton</li>
+                    </ul>
+                    <div class="area-note">
+                        <strong>Outside the core area?</strong> You may still be served. Delivery fees or longer rental minimums may apply for customers further out. <a href="#contact" style="color: var(--green-dark); font-weight: 600;">Message us your location</a> and we'll confirm.
+                    </div>
+                </div>
+                <div class="area-map">
+                    <img src="servicemap.jpg" alt="CPH Mobility Rentals service area map covering Central Park, Park Hill, NE Denver and surrounding areas" 
+                         onerror="this.src=''; this.alt='Service area map — roughly a 20-minute radius from Central Park, Denver'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="section faq-bg" id="faq">
+        <div class="container">
+            <div class="text-center">
+                <div class="section-tag">Questions</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know before you rent.</p>
+            </div>
+            <div class="faq-container">
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">How do I reserve a scooter? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Contact us with your rental dates, delivery location, the rider's approximate weight, where the scooter will mainly be used, and whether you plan to transport it in a vehicle. We'll confirm availability, fit, pricing, and delivery details before finalizing the rental.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">What areas do you serve? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Our core service area includes Central Park, Park Hill, Northfield, NE Denver, and the Denver International Airport area. Customers outside the core area may still be served depending on rental length, delivery distance, availability, or self-pickup options. Message us your location and dates and we'll confirm availability.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Is delivery included? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Yes. Delivery, basic setup, charger, and pickup are included within our core service area. We'll bring the scooter to your home, hotel, short-term rental, rehab location, or another approved location, then pick it up at the end of the rental.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Can I pick up the scooter myself? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Yes, customer pickup may be available by arrangement. Pickup does not automatically reduce the rental price because the scooter is still cleaned, charged, reserved for your dates, inspected, and supported during the rental.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Will the scooter fit in my car? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Many travel scooters can be taken apart into smaller pieces and fit in most SUVs, minivans, hatchbacks, and some larger trunks. Smaller sedans may not have enough space. Tell us your vehicle type when you contact us and we can help you decide whether transport is realistic.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Where can the scooter be used? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Our scooters are best for normal everyday use on smooth, stable surfaces such as sidewalks, paved paths, airports, hotels, museums, shopping areas, medical appointments, and events. They should not be used on stairs, sand, mud, steep hills, deep gravel, grass, or unsafe or uneven terrain.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">What happens if the scooter has an issue during my rental? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Contact us right away by phone or text. We'll troubleshoot with you and work to resolve the issue as quickly as possible. If the scooter becomes unusable due to a mechanical, battery, charger, or electrical issue not caused by customer damage, misuse, improper charging, or unsafe use, we will provide a replacement when available, repair the issue, or provide a fair credit or refund for the unused portion of the rental.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Do you require a deposit? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">We do not require a deposit by default. However, a deposit may be required in certain situations based on rental length, delivery distance, or other factors. Customers are responsible for damage, loss, theft, missing accessories, or misuse.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">How do payments work? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Payment is due before or at delivery unless otherwise agreed. We accept all major credit and debit cards. For longer rentals, automatic monthly payments may be required.</div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">Can I rent a scooter for someone else? <i class="fas fa-chevron-down chevron"></i></div>
+                    <div class="faq-answer">Absolutely. Many customers rent scooters for a parent, grandparent, spouse, visiting family member, or someone recovering from surgery or injury. The person arranging the rental is responsible for payment, return, and making sure the rider uses the scooter safely.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section class="section contact-bg" id="contact">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <div class="section-tag">Get in Touch</div>
+                    <h2>Check Availability in Your Area</h2>
+                    <p>Fill out the form and we'll get back to you quickly to confirm availability, answer any questions, and finalize your rental. Takes less than 2 minutes.</p>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+13035007444">(303) 500-7444</a>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:cphmobilityrentals@gmail.com">cphmobilityrentals@gmail.com</a>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span style="color: var(--text-light);">Central Park, Denver, CO</span>
+                    </div>
+                    <br>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">We typically respond within a few hours. For urgent requests, call or text us directly at <a href="tel:+13035007444" style="color: var(--green-dark); font-weight: 600;">(303) 500-7444</a>.</p>
+                </div>
+
+                <div class="contact-form-box">
+                    <h3>Reserve Your Scooter</h3>
+                    <p class="form-sub">No obligation. We'll confirm everything before you're charged.</p>
+                    <form action="https://formspree.io/f/YOURFORMID" method="POST" id="rentalForm">
+                        <div class="form-group"><label>Full Name</label><input type="text" name="name" required placeholder="Your name"></div>
+                        <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" required placeholder="(303) 555-0000"></div>
+                        <div class="form-group"><label>Email Address</label><input type="email" name="email" required placeholder="you@email.com"></div>
+                        <div class="form-group"><label>Delivery Address</label><input type="text" name="address" required placeholder="Street, City, Zip"></div>
+                        <div class="form-group"><label>Rental Plan</label>
+                            <select name="plan" id="planSelector">
+                                <option value="1-Month Rental ($299)">1-Month Rental — $299</option>
+                                <option value="2-Week Rental ($239)">2-Week Rental — $239</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>Rental Start Date (Approximate)</label><input type="text" name="start_date" placeholder="e.g. June 15"></div>
+                        <div class="form-group"><label>Message / Questions (Optional)</label>
+                            <textarea name="message" rows="3" placeholder="Tell us about the rider, your vehicle type, where the scooter will be used, etc."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Request Availability →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="co-strip"></div>
+
+    <footer>
+        <p>&copy; 2026 Central Park Hill Mobility Rentals. Proudly serving NE Denver and surrounding communities.</p>
+        <p style="margin-top: 0.5rem;"><a href="tel:+13035007444">(303) 500-7444</a> &nbsp;·&nbsp; <a href="mailto:cphmobilityrentals@gmail.com">cphmobilityrentals@gmail.com</a></p>
+    </footer>
+
+    <script>
+        function selectPlan(planValue) {
+            document.getElementById('planSelector').value = planValue;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const form = document.getElementById("rentalForm");
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    window.location.href = "https://cphmobilityrentals.github.io/success.html";
+                } else {
+                    const data = await response.json();
+                    alert("Oops! There was a problem: " + (data.error || "Please try again."));
+                    submitButton.textContent = "Request Availability →";
+                    submitButton.disabled = false;
+                }
+            } catch (error) {
+                alert("Oops! Network error. Please check your connection.");
+                submitButton.textContent = "Request Availability →";
+                submitButton.disabled = false;
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.getElementById(this.getAttribute('href').substring(1));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
