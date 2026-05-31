@@ -10,17 +10,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         :root {
-            --green-dark: #2d6a4f;
-            --green-mid: #40916c;
-            --green-light: #74c69d;
-            --green-pale: #d8f3dc;
-            --co-blue: #1a4f8a;
-            --co-red: #c0392b;
-            --cream: #f9f7f2;
-            --dark: #1a2e1e;
+            --co-blue:        #1a5fa8;
+            --co-blue-dark:   #134d8a;
+            --co-blue-deep:   #0d3666;
+            --co-blue-pale:   #ddeaf8;
+            --zia-red:        #c1440e;
+            --sun-yellow:     #f4a923;
+            --cream:          #faf8f4;
+            --dark:           #0d1f35;
+            --text:           #1e2d3d;
+            --text-light:     #5a6d82;
         }
-
+ 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--cream);
@@ -29,35 +32,43 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
             padding: 2rem;
+            text-align: center;
         }
-
-        .co-strip-top {
+ 
+        .sw-strip-top {
             position: fixed;
             top: 0; left: 0; right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--co-blue) 25%, var(--co-red) 25%, var(--co-red) 40%, #f9c740 40%, #f9c740 60%, var(--co-red) 60%, var(--co-red) 75%, var(--co-blue) 75%);
+            height: 10px;
+                        background: linear-gradient(to right,
+                var(--co-blue)    0%    14%,
+                var(--zia-red)    14%   28%,
+                var(--sun-yellow) 28%   43%,
+                #ffffff           43%   57%,
+                var(--sun-yellow) 57%   72%,
+                var(--zia-red)    72%   86%,
+                var(--co-blue)    86%   100%);
+            z-index: 100;
         }
-
+ 
         .card {
             background: white;
             padding: 3.5rem;
             border-radius: 28px;
-            box-shadow: 0 20px 60px rgba(45,106,79,0.12);
+            box-shadow: 0 20px 60px rgba(26,95,168,0.12);
             max-width: 540px;
             width: 100%;
             animation: fadeUp 0.6s ease both;
         }
-
+ 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+ 
         .icon-circle {
             width: 90px; height: 90px;
-            background: var(--green-pale);
+            background: var(--co-blue-pale);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 1.8rem;
@@ -67,27 +78,24 @@
             from { transform: scale(0); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-        .icon-circle i {
-            font-size: 2.8rem;
-            color: var(--green-dark);
-        }
-
+        .icon-circle i { font-size: 2.8rem; color: var(--co-blue-dark); }
+ 
         h1 {
             font-family: 'Playfair Display', serif;
-            color: var(--green-dark);
+            color: var(--co-blue-deep);
             font-size: 2.2rem;
             margin-bottom: 0.8rem;
         }
-
+ 
         .tagline {
-            color: #5a7060;
+            color: var(--text-light);
             font-size: 1rem;
             line-height: 1.7;
             margin-bottom: 2rem;
         }
-
+ 
         .steps {
-            background: var(--green-pale);
+            background: var(--co-blue-pale);
             border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 2rem;
@@ -98,7 +106,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--green-dark);
+            color: var(--co-blue-deep);
             margin-bottom: 1rem;
         }
         .steps ul { list-style: none; }
@@ -114,7 +122,7 @@
         .steps ul li:last-child { margin-bottom: 0; }
         .step-num-small {
             width: 24px; height: 24px;
-            background: var(--green-dark);
+            background: var(--co-blue-dark);
             color: white;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
@@ -123,11 +131,11 @@
             flex-shrink: 0;
             margin-top: 1px;
         }
-
+ 
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: var(--green-dark);
+            background: var(--co-blue-dark);
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -136,25 +144,18 @@
             transition: all 0.3s;
             margin-bottom: 1rem;
         }
-        .btn:hover { background: var(--green-mid); transform: translateY(-2px); }
-
-        .secondary {
-            font-size: 0.88rem;
-            color: #5a7060;
-        }
-        .secondary a {
-            color: var(--green-dark);
-            text-decoration: none;
-            font-weight: 600;
-        }
+        .btn:hover { background: var(--co-blue); transform: translateY(-2px); }
+ 
+        .secondary { font-size: 0.88rem; color: var(--text-light); }
+        .secondary a { color: var(--co-blue-deep); text-decoration: none; font-weight: 600; }
         .secondary a:hover { text-decoration: underline; }
-
-        .divider { height: 1px; background: #e8f0e9; margin: 1.5rem 0; }
+ 
+        .divider { height: 1px; background: #dde8f5; margin: 1.5rem 0; }
     </style>
 </head>
 <body>
-    <div class="co-strip-top"></div>
-
+    <div class="sw-strip-top"></div>
+ 
     <div class="card">
         <div class="icon-circle">
             <i class="fas fa-check"></i>
@@ -163,7 +164,7 @@
         <p class="tagline">
             We've received your request and will be in touch shortly — usually within a few hours — to confirm availability and next steps.
         </p>
-
+ 
         <div class="steps">
             <div class="steps-title">What happens next</div>
             <ul>
@@ -177,15 +178,15 @@
                 </li>
                 <li>
                     <div class="step-num-small">3</div>
-                    <span>We finalize delivery, collect payment, and get your scooter on its way</span>
+                    <span>We schedule delivery at a time that works for you — including evenings and weekends</span>
                 </li>
             </ul>
         </div>
-
+ 
         <a href="/" class="btn">← Back to Homepage</a>
-
+ 
         <div class="divider"></div>
-
+ 
         <div class="secondary">
             Need something urgent?&nbsp;
             <a href="tel:+13035007444">Call or text (303) 500-7444</a>
@@ -193,3 +194,4 @@
     </div>
 </body>
 </html>
+ 
