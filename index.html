@@ -1,962 +1,1145 @@
-uppercasepercaseDOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobility Scooter Rentals in Denver | CPH Mobility Rentals</title>
-    <meta name="description" content="Clean, reliable mobility scooter rentals delivered to your door in Central Park, Park Hill, Northfield, and NE Denver. From $239 for 2 weeks. No deposit required.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <style>
-        :root {
-            --co-blue:        #1a5fa8;
-            --co-blue-dark:   #134d8a;
-            --co-blue-deep:   #0d3666;
-            --co-blue-pale:   #ddeaf8;
-            --zia-red:        #c1440e;
-            --sun-yellow:     #f4a923;
-            --zia-red-dark:   #9e3309;
-            --cream:          #faf8f4;
-            --sand:           #f0ebe0;
-            --dark:           #0d1f35;
-            --text:           #1e2d3d;
-            --text-light:     #5a6d82;
-            --white:          #ffffff;
-            /* strip colors */
-            --strip-a: #1a5fa8;
-            --strip-b: #c1440e;
-            --strip-c: #f4a923;
-        }
- 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
- 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            overflow-x: hidden;
-            background: var(--cream);
-        }
- 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
- 
-        /* ── SOUTHWEST STRIP ── */
-        .sw-strip {
-            height: 10px;
-            background: linear-gradient(to right,
-                var(--co-blue)    0%    14%,
-                var(--zia-red)    14%   28%,
-                var(--sun-yellow) 28%   43%,
-                #ffffff           43%   57%,
-                var(--sun-yellow) 57%   72%,
-                var(--zia-red)    72%   86%,
-                var(--co-blue)    86%   100%);
-        }
-        .sw-strip-fixed {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 10px;
-            background: linear-gradient(to right,
-                var(--co-blue)    0%    14%,
-                var(--zia-red)    14%   28%,
-                var(--sun-yellow) 28%   43%,
-                #ffffff           43%   57%,
-                var(--sun-yellow) 57%   72%,
-                var(--zia-red)    72%   86%,
-                var(--co-blue)    86%   100%);
-            z-index: 1001;
-        }
- 
-        /* ── HEADER ── */
-        header {
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(10px);
-            padding: 0.8rem 0;
-            position: fixed;
-            width: 100%;
-            top: 10px;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(26,95,168,0.12);
-            border-bottom: 3px solid var(--zia-red);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .logo img { height: 110px; width: auto; display: block; }
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--co-blue-dark);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        .logo-text span { display: block; font-size: 0.75rem; font-family: 'DM Sans', sans-serif; color: var(--text-light); font-weight: 500; letter-spacing: 0.05em; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: var(--co-blue-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--zia-red); }
-        .phone-btn {
-            background: var(--co-blue-dark);
-            padding: 0.75rem 1.4rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .phone-btn:hover { background: var(--co-blue); transform: translateY(-2px); }
- 
-        /* ── HERO ── */
-        .hero {
-            background: linear-gradient(rgba(26,46,44,0.52), rgba(20,36,34,0.62)), url('background3.png');
-            background-size: cover;
-            background-position: center;
-            min-height: 88vh;
-            display: flex;
-            align-items: center;
-            color: white;
-            padding-top: 145px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 80px;
-            background: linear-gradient(to bottom right, transparent 49%, var(--cream) 50%);
-            z-index: 0;
-        }
-        .hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: var(--zia-red);
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            margin-bottom: 1.2rem;
-        }
-        .hero h1 { font-size: 3.4rem; line-height: 1.1; margin-bottom: 1rem; font-weight: 800; }
-        .hero h1 em { font-style: normal; color: var(--sun-yellow); }
-        .hero .subheadline { font-size: 1.15rem; margin-bottom: 1.8rem; opacity: 0.9; font-weight: 300; line-height: 1.7; }
-        .hero-list { list-style: none; margin-bottom: 2rem; }
-        .hero-list li { font-size: 1rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 10px; font-weight: 400; }
-        .hero-list i { color: var(--sun-yellow); font-size: 1rem; flex-shrink: 0; }
-        .cta-main {
-            display: inline-block;
-            background: var(--sun-yellow);
-            color: var(--dark);
-            padding: 1.1rem 2.4rem;
-            border-radius: 50px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-bottom: 0.6rem;
-            box-shadow: 0 6px 20px rgba(244,169,35,0.4);
-        }
-        .cta-main:hover { background: white; color: var(--dark); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(244,169,35,0.5); }
-        .hero-tiny-line { font-size: 0.85rem; font-weight: 500; color: #f4a923 !important; }
- 
-        /* Hero right card */
-        .hero-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 24px;
-            padding: 2.5rem;
-            text-align: center;
-        }
-        .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; }
-        .hero-plan { background: rgba(255,255,255,0.15); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2); }
-        .hero-plan-name { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 0.3rem; font-weight: 600; }
-        .hero-plan-price { font-size: 2.2rem; font-weight: 800; color: var(--sun-yellow); }
-        .hero-plan-price small { font-size: 0.9rem; opacity: 0.8; font-weight: 300; }
-        .hero-card-note { margin-top: 1.2rem; font-size: 0.8rem; opacity: 0.7; }
- 
-        /* ── SECTIONS ── */
-        .section { padding: 5rem 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .section-tag {
-            display: inline-block;
-            background: var(--co-blue-pale);
-            color: var(--co-blue-deep);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding: 0.35rem 1rem;
-            border-radius: 50px;
-            margin-bottom: 1rem;
-        }
-        .section-title { font-size: 2.6rem; margin-bottom: 0.8rem; color: var(--co-blue-deep); }
-        .section-subtitle { font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-light); max-width: 620px; margin-left: auto; margin-right: auto; }
-        .text-center { text-align: center; }
- 
-        /* ── HOW IT WORKS ── */
-        .how-bg { background: white; }
-        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
-        .steps-grid::before {
-            content: '';
-            position: absolute;
-            top: 48px;
-            left: calc(16.66% + 1rem);
-            right: calc(16.66% + 1rem);
-            height: 2px;
-            background: linear-gradient(to right, var(--co-blue), var(--co-blue-pale));
-            z-index: 0;
-        }
-        .step { text-align: center; position: relative; z-index: 1; }
-        .step-num {
-            width: 80px; height: 80px;
-            background: var(--co-blue-dark);
-            color: white;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem; font-weight: 700;
-            margin: 0 auto 1.5rem;
-            border: 4px solid var(--cream);
-            box-shadow: 0 8px 24px rgba(26,95,168,0.25);
-        }
-        .step h3 { font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--co-blue-deep); }
-        .step p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
-        .step-icon { font-size: 2rem; margin-bottom: 1rem; color: var(--co-blue); }
- 
-        /* White Glove callout inside How It Works */
-        .white-glove-bar {
-            margin-top: 3.5rem;
-            background: linear-gradient(135deg, var(--zia-red), #a33609);
-            border-radius: 20px;
-            padding: 2rem 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            color: white;
-        }
-        .wg-icon {
-            font-size: 2.2rem;
-            color: var(--sun-yellow);
-            flex-shrink: 0;
-        }
-        .wg-text h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.3rem; }
-        .wg-text p { font-size: 0.95rem; opacity: 0.88; line-height: 1.7; }
-        .wg-text strong { color: var(--sun-yellow); }
- 
-        /* ── PRICING ── */
-        .pricing-bg { background: var(--cream); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto; }
-        .pricing-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 24px;
-            box-shadow: 0 8px 30px rgba(26,95,168,0.08);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            border: 2px solid transparent;
-            transition: border-color 0.3s, transform 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--co-blue-dark), var(--co-blue));
-        }
-        .pricing-card:hover { border-color: var(--co-blue); transform: translateY(-6px); }
-        .pricing-card.featured { border-color: var(--co-blue); transform: scale(1.03); }
-        .pricing-card.featured::before { background: linear-gradient(to right, var(--zia-red), var(--sun-yellow)); }
-        .featured-badge {
-            position: absolute;
-            top: 1rem; right: 1rem;
-            background: var(--zia-red);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-        }
-        .plan-name { font-size: 1.1rem; font-weight: 700; color: var(--text-light); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
-        .price { font-size: 3.2rem; font-weight: 800; color: var(--co-blue-dark); line-height: 1; }
-        .price small { font-size: 1rem; color: var(--text-light); font-weight: 400; }
-        .price-duration { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem; }
-        .benefits-list { list-style: none; margin: 1rem 0 1.8rem; text-align: left; flex-grow: 1; }
-        .benefits-list li { margin-bottom: 0.7rem; padding-left: 28px; position: relative; font-size: 0.95rem; color: var(--text); }
-        .benefits-list li::before { content: '✓'; position: absolute; left: 0; color: var(--zia-red); font-weight: 700; }
-        .plan-select-btn {
-            background: var(--co-blue-dark);
-            color: white;
-            padding: 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-family: 'DM Sans', sans-serif;
-        }
-        .plan-select-btn:hover { background: var(--co-blue); transform: translateY(-3px); }
-        .plan-select-btn.featured-btn { background: var(--zia-red); }
-        .plan-select-btn.featured-btn:hover { background: #a33609; }
- 
-        /* ── USE CASES ── */
-        .uses-bg { background: var(--sand); }
-        .uses-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-        .use-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1.6rem 1.2rem;
-            text-align: center;
-            border-bottom: 3px solid var(--zia-red);
-            transition: transform 0.25s, box-shadow 0.25s;
-            box-shadow: 0 4px 14px rgba(26,95,168,0.06);
-        }
-        .use-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(26,95,168,0.15); }
-        .use-card i { font-size: 1.8rem; color: var(--zia-red); margin-bottom: 0.8rem; display: block; }
-        .use-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--co-blue-deep); margin-bottom: 0.3rem; }
-        .use-card p { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
- 
-        /* ── WHAT'S INCLUDED ── */
-        .included-bg { background: var(--zia-red); color: white; }
-        .included-bg .section-title { color: white; }
-        .included-bg .section-subtitle { color: rgba(255,255,255,0.72); }
-        .included-bg .section-tag { background: rgba(255,255,255,0.2); color: white; }
-        .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .included-item {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            padding: 1.8rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: background 0.3s;
-        }
-        .included-item:hover { background: rgba(255,255,255,0.14); }
-        .included-item i { font-size: 2rem; color: var(--sun-yellow); margin-bottom: 1rem; display: block; }
-        .included-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
-        .included-item p { font-size: 0.88rem; opacity: 0.75; line-height: 1.6; }
- 
-        /* ── SERVICE AREA ── */
-        .area-bg { background: white; }
-        .area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .area-map { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(26,95,168,0.2); }
-        .area-map img { width: 100%; display: block; }
-        .area-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 1.5rem 0 2rem; }
-        .area-list li {
-            background: var(--co-blue-pale);
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            color: var(--co-blue-deep);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .area-list li i { color: var(--co-blue); font-size: 0.8rem; }
-        .area-note { background: #fff8e6; border-left: 4px solid var(--sun-yellow); padding: 1rem 1.2rem; border-radius: 8px; font-size: 0.9rem; color: #7a5c00; }
- 
-        /* ── FAQ ── */
-        .faq-bg { background: var(--cream); }
-        .faq-container { max-width: 860px; margin: 0 auto; }
-        .faq-item {
-            background: white;
-            border: 1px solid #dff0ee;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            overflow: hidden;
-            transition: box-shadow 0.3s;
-        }
-        .faq-item:hover { box-shadow: 0 4px 16px rgba(26,95,168,0.1); }
-        .faq-question {
-            padding: 1.2rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--co-blue-deep);
-            text-align: left;
-            gap: 1rem;
-            font-size: 1rem;
-        }
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.35s ease;
-            background: #f4faf9;
-            text-align: left;
-            line-height: 1.8;
-            color: var(--text);
-            font-size: 0.97rem;
-        }
-        .faq-item.active .faq-answer { padding: 1.2rem 1.5rem; max-height: 600px; }
-        .faq-item.active .chevron { transform: rotate(180deg); color: var(--zia-red); }
-        .chevron { transition: transform 0.3s ease; color: var(--text-light); flex-shrink: 0; }
- 
-        /* ── CONTACT ── */
-        .contact-bg { background: white; }
-        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .contact-info h2 { font-size: 2.2rem; color: var(--co-blue-deep); margin-bottom: 1rem; }
-        .contact-info p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
-        .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
-        .contact-detail i { color: var(--co-blue); font-size: 1.1rem; width: 24px; text-align: center; }
-        .contact-detail a { color: var(--co-blue-deep); text-decoration: none; font-weight: 600; }
-        .contact-detail a:hover { color: var(--co-blue); }
-        .response-promise {
-            background: #fdeee8;
-            border-left: 4px solid var(--zia-red);
-            border-radius: 10px;
-            padding: 1rem 1.2rem;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--co-blue-deep);
-            line-height: 1.7;
-        }
-        .response-promise strong { display: block; margin-bottom: 0.2rem; font-size: 1rem; }
- 
-        .contact-form-box {
-            background: var(--co-blue-deep);
-            padding: 2.5rem;
-            border-radius: 24px;
-            color: white;
-        }
-        .contact-form-box h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.4rem; }
-        .contact-form-box .form-sub { font-size: 0.9rem; opacity: 0.75; margin-bottom: 1.8rem; }
-        .form-group { margin-bottom: 1.1rem; }
-        .form-group label { display: block; margin-bottom: 5px; font-size: 0.85rem; font-weight: 600; opacity: 0.85; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 0.95rem;
-            font-family: 'DM Sans', sans-serif;
-            transition: border-color 0.2s;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--sun-yellow);
-            background: rgba(255,255,255,0.15);
-        }
-        .form-group input::placeholder, .form-group textarea::placeholder { opacity: 0.5; }
-        .form-group select option { background: var(--co-blue-deep); color: white; }
-        .submit-btn {
-            background: var(--sun-yellow);
-            color: var(--dark);
-            width: 100%;
-            border: none;
-            padding: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.3s;
-        }
-        .submit-btn:hover { background: white; transform: translateY(-2px); }
- 
-        /* ── FOOTER ── */
-        footer { background: var(--dark); color: white; padding: 2.5rem 0; text-align: center; }
-        footer p { opacity: 0.6; font-size: 0.9rem; }
-        footer a { color: var(--co-blue); text-decoration: none; }
- 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-card { display: none; }
-            .area-layout { grid-template-columns: 1fr; }
-            .contact-layout { grid-template-columns: 1fr; }
-            .steps-grid { grid-template-columns: 1fr; }
-            .steps-grid::before { display: none; }
-            .white-glove-bar { flex-direction: column; text-align: center; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .logo img { height: 70px; }
-            .hero { padding-top: 110px; min-height: 80vh; }
-            .hero h1 { font-size: 2.2rem; }
-            .section-title { font-size: 2rem; }
-            .pricing-card.featured { transform: none; }
-            .area-list { grid-template-columns: 1fr; }
-            .uses-grid { grid-template-columns: repeat(2, 1fr); }
-            .included-grid { grid-template-columns: repeat(2, 1fr); }
-        }
- 
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .hero .hero-badge, .hero h1, .hero .subheadline, .hero-list, .cta-main, .hero-tiny-line { animation: fadeUp 0.6s ease both; }
-        .hero .hero-badge { animation-delay: 0.1s; }
-        .hero h1 { animation-delay: 0.2s; }
-        .hero .subheadline { animation-delay: 0.35s; }
-        .hero-list { animation-delay: 0.5s; }
-        .cta-main { animation-delay: 0.65s; }
-        .hero-tiny-line { animation-delay: 0.75s; color: #f4a923 !important; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobility Scooter Rentals in Denver | Central Park Hill Mobility Rentals</title>
+<meta name="description" content="Clean, reliable mobility scooter rentals delivered to your door in Central Park, Park Hill, Northfield, and NE Denver. From $239 for 2 weeks. Simple rental agreement, no credit check.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600;1,700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<style>
+:root {
+  --sky:        #2e86c9;
+  --sky-light:  #5ba3d9;
+  --sky-pale:   #eaf4fb;
+  --sky-deep:   #1a5f96;
+  --amber:      #f5a623;
+  --amber-pale: #fef6e8;
+  --amber-dark: #c47f0a;
+  --sage:       #5a8a6a;
+  --sage-pale:  #eef5f0;
+  --warm-white: #fffdf9;
+  --cream:      #faf6ef;
+  --sand:       #f2ece1;
+  --text:       #2a2118;
+  --text-mid:   #5c4f42;
+  --text-light: #9c8e82;
+  --white:      #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--warm-white);
+  color: var(--text);
+  overflow-x: hidden;
+  font-size: 17px;
+}
+
+/* ── TOP BAR ── */
+.top-bar {
+  background: var(--sky);
+  color: white;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+.top-bar span { color: var(--amber); }
+
+/* ── HEADER ── */
+header {
+  background: var(--warm-white);
+  padding: 0.8rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(42,33,24,0.08);
+  border-bottom: 3px solid var(--amber);
+}
+.logo-area img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+.logo-fallback {
+  display: none;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--sky-deep);
+  line-height: 1.2;
+}
+nav { display:flex; gap:1.8rem; align-items:center; }
+nav a {
+  color: var(--text-mid);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--sky); }
+.call-btn {
+  background: var(--sky);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.call-btn:hover { background: var(--sky-deep); transform: translateY(-2px); }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--sky-pale) 0%, var(--amber-pale) 55%, var(--warm-white) 100%);
+  padding: 4rem 2.5rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 550px; height: 550px;
+  background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  border: 2px solid var(--sky-light);
+  color: var(--sky-deep);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 2px 8px rgba(46,134,201,0.1);
+}
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 1.1rem;
+}
+.hero h1 em { font-style: italic; color: var(--sky); }
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.9;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+  max-width: 500px;
+}
+.hero-checklist { list-style: none; margin-bottom: 2.2rem; }
+.hero-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.65rem;
+}
+.check-bubble {
+  width: 24px; height: 24px;
+  background: var(--sky);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 0.7rem; font-weight: 900;
+  flex-shrink: 0;
+}
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+.btn-primary {
+  background: var(--amber);
+  color: var(--text);
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 20px rgba(245,166,35,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(245,166,35,0.45); }
+.btn-secondary {
+  background: white;
+  color: var(--sky-deep);
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--sky-light);
+  transition: all 0.2s;
+}
+.btn-secondary:hover { background: var(--sky-pale); transform: translateY(-2px); }
+.cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-reassurance {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.2rem;
+}
+
+/* Hero right */
+.hero-right { display: flex; flex-direction: column; gap: 1.2rem; }
+.scooter-img-box {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(42,33,24,0.1);
+  text-align: center;
+  padding: 1.5rem;
+}
+.scooter-img-box img {
+  max-width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.scooter-img-caption {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 700;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.price-cards { display: flex; flex-direction: column; gap: 0.8rem; }
+.price-float {
+  background: white;
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 20px rgba(42,33,24,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid var(--sky);
+  transition: transform 0.2s;
+  cursor: default;
+}
+.price-float:hover { transform: translateX(5px); }
+.price-float.amber { border-left-color: var(--amber); }
+.pf-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); font-weight: 700; margin-bottom: 0.2rem; }
+.pf-name { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--text); }
+.pf-note { font-size: 0.72rem; color: var(--text-light); margin-top: 0.2rem; font-weight: 600; }
+.pf-price { font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 700; color: var(--sky); line-height: 1; }
+.price-float.amber .pf-price { color: var(--amber-dark); }
+.best-chip {
+  background: var(--amber);
+  color: var(--text);
+  font-size: 0.58rem;
+  font-weight: 900;
+  padding: 0.18rem 0.55rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+.hero-card-note {
+  background: var(--sage-pale);
+  border-radius: 14px;
+  padding: 1rem 1.3rem;
+  font-size: 0.85rem;
+  color: var(--sage);
+  font-weight: 700;
+  text-align: center;
+  border: 1.5px solid #b8d4be;
+}
+.hero-card-note strong { color: var(--text); display: block; margin-bottom: 0.2rem; font-size: 0.92rem; }
+
+/* ── TRUST BAR ── */
+.trust-bar { background: var(--sky); padding: 1.5rem 2.5rem; }
+.trust-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1rem; text-align: center;
+}
+.trust-item { color: white; }
+.trust-num {
+  font-family: 'Lora', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--amber); line-height: 1;
+  display: block;
+}
+.trust-label { font-size: 0.78rem; opacity: 0.9; font-weight: 700; line-height: 1.4; margin-top: 0.3rem; }
+
+/* ── SECTIONS ── */
+.section { padding: 5rem 2.5rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.tag-pill {
+  display: inline-block;
+  background: var(--sky-pale);
+  color: var(--sky-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+.section h2 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+.section h2 em { font-style: italic; color: var(--sky); }
+.section .lead {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+.text-center { text-align: center; }
+.text-center .lead { margin-left: auto; margin-right: auto; }
+
+/* ── HOW IT WORKS ── */
+.how-bg { background: var(--warm-white); }
+.steps-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+.step-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 4px 20px rgba(42,33,24,0.07);
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.step-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(42,33,24,0.12); }
+.step-circle {
+  width: 60px; height: 60px;
+  background: var(--sky);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.4rem;
+  font-family: 'Lora', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 16px rgba(46,134,201,0.3);
+}
+.step-card h3 { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.7rem; color: var(--text); }
+.step-card p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; font-weight: 600; }
+.step-card:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -1.2rem; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: var(--sky-light);
+  z-index: 2;
+}
+.airport-callout {
+  margin-top: 2rem;
+  background: var(--sky-pale);
+  border-radius: 20px;
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 2px solid var(--sky-light);
+}
+.airport-icon { font-size: 2.2rem; flex-shrink: 0; }
+.airport-text h4 { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: var(--sky-deep); margin-bottom: 0.3rem; }
+.airport-text p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; font-weight: 600; }
+.wg-banner {
+  margin-top: 1.2rem;
+  background: linear-gradient(135deg, var(--sky-pale), #ddeeff);
+  border-radius: 20px;
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 2px solid var(--sky-light);
+}
+.wg-emoji { font-size: 2.2rem; flex-shrink: 0; }
+.wg-text h4 { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: var(--sky-deep); margin-bottom: 0.3rem; }
+.wg-text p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.8; font-weight: 600; }
+.wg-text strong { color: var(--sky-deep); }
+
+/* ── USE CASES ── */
+.uses-bg { background: var(--cream); }
+.uses-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
+.use-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(42,33,24,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-bottom: 4px solid transparent;
+}
+.use-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(42,33,24,0.12); border-bottom-color: var(--amber); }
+.use-emoji { font-size: 2.2rem; display: block; margin-bottom: 0.8rem; }
+.use-card h4 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+.use-card p { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; font-weight: 600; }
+
+/* ── REVIEWS ── */
+.reviews-bg { background: white; }
+.stars { color: #f5a623; font-size: 1.1rem; margin-bottom: 0.8rem; letter-spacing: 0.05em; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.review-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(42,33,24,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(42,33,24,0.1); }
+.review-text {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-weight: 600;
+  font-style: italic;
+  flex-grow: 1;
+}
+.review-text::before { content: '\201C'; font-size: 2rem; color: var(--sky-light); line-height: 0; vertical-align: -0.5rem; margin-right: 2px; font-style: normal; }
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.reviewer-initial {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--sky);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 1rem;
+  flex-shrink: 0;
+}
+.reviewer-name { font-weight: 800; font-size: 0.9rem; color: var(--text); }
+.reviewer-tag { font-size: 0.72rem; color: var(--text-light); font-weight: 600; }
+.google-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  font-weight: 700;
+}
+.reviews-summary {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  font-weight: 700;
+}
+.reviews-summary a { color: var(--sky-deep); text-decoration: none; font-weight: 800; }
+.reviews-summary a:hover { text-decoration: underline; }
+
+/* ── INCLUDED ── */
+.included-bg {
+  background: linear-gradient(135deg, var(--sky-deep) 0%, var(--sky) 100%);
+}
+.inc-tag { display: inline-block; background: rgba(255,255,255,0.2); color: white; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 50px; margin-bottom: 1rem; }
+.included-bg h2 { color: white; }
+.included-bg h2 em { color: var(--amber); }
+.included-bg .lead { color: rgba(255,255,255,0.82); }
+.inc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+.inc-card {
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: background 0.2s;
+}
+.inc-card:hover { background: rgba(255,255,255,0.18); }
+.inc-emoji { font-size: 2rem; display: block; margin-bottom: 1rem; }
+.inc-card h4 { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 0.4rem; }
+.inc-card p { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.7; font-weight: 600; }
+
+/* ── SERVICE AREA ── */
+.area-bg { background: var(--warm-white); }
+.area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.area-map { border-radius: 24px; overflow: hidden; box-shadow: 0 16px 48px rgba(46,134,201,0.18); }
+.area-map img { width: 100%; display: block; }
+.area-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
+.chip { font-size: 0.82rem; font-weight: 800; padding: 0.4rem 1rem; border-radius: 50px; }
+.chip.core { background: var(--sky); color: white; }
+.chip.outer { background: var(--sky-pale); color: var(--sky-deep); border: 1.5px solid var(--sky-light); }
+.area-note { background: var(--amber-pale); border-left: 4px solid var(--amber); border-radius: 10px; padding: 1rem 1.2rem; font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; font-weight: 700; }
+
+/* ── FAQ ── */
+.faq-bg { background: var(--cream); }
+.faq-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: 5rem; }
+.faq-left h2 { font-family: 'Lora', serif; font-size: 2.3rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 1rem; }
+.faq-left h2 em { font-style: italic; color: var(--sky); }
+.faq-left p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; font-weight: 600; margin-bottom: 2rem; }
+.faq-direct { background: var(--sky); color: white; padding: 1.5rem; border-radius: 20px; text-align: center; }
+.faq-direct p { color: rgba(255,255,255,0.85); margin-bottom: 1rem; font-size: 0.9rem; font-weight: 700; }
+.faq-direct a { background: white; color: var(--sky-deep); padding: 0.7rem 1.5rem; border-radius: 50px; font-weight: 900; font-size: 0.9rem; text-decoration: none; display: inline-block; }
+.faq-item {
+  background: white;
+  border-radius: 14px;
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(42,33,24,0.05);
+  transition: box-shadow 0.2s;
+}
+.faq-item:hover { box-shadow: 0 4px 16px rgba(42,33,24,0.1); }
+.faq-q {
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--text);
+  gap: 1rem;
+}
+.faq-icon {
+  width: 28px; height: 28px;
+  background: var(--sky-pale);
+  color: var(--sky);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.faq-item.open .faq-icon { background: var(--sky); color: white; transform: rotate(45deg); }
+.faq-a {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-weight: 600;
+}
+.faq-item.open .faq-a { padding: 0 1.5rem 1.2rem; max-height: 300px; }
+
+/* ── CONTACT ── */
+.contact-bg { background: var(--sand); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+.contact-info h2 { font-family: 'Lora', serif; font-size: 2.3rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 1rem; }
+.contact-info h2 em { font-style: italic; color: var(--sky); }
+.contact-info .desc { font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem; font-weight: 600; }
+.contact-method {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 1rem;
+  padding: 1rem 1.2rem;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(42,33,24,0.06);
+}
+.contact-method .cm-icon { font-size: 1.4rem; flex-shrink: 0; }
+.contact-method .cm-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); font-weight: 800; }
+.contact-method .cm-value { font-size: 0.95rem; font-weight: 800; color: var(--text); }
+.contact-method a { color: var(--sky-deep); text-decoration: none; }
+.promise-box {
+  margin-top: 1.5rem;
+  background: var(--sky);
+  border-radius: 20px;
+  padding: 1.8rem;
+  color: white;
+}
+.promise-box h4 { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.promise-box h4 em { font-style: italic; color: var(--amber); }
+.promise-box p { font-size: 0.88rem; opacity: 0.9; line-height: 1.8; font-weight: 600; }
+.form-box {
+  background: white;
+  border-radius: 28px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 48px rgba(42,33,24,0.1);
+}
+.form-box h3 { font-family: 'Lora', serif; font-size: 1.7rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+.form-box .sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.8rem; font-weight: 700; }
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-mid); margin-bottom: 5px; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 2px solid #ede5d8;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--warm-white);
+  transition: border-color 0.2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--sky); background: white; }
+.submit-btn {
+  width: 100%;
+  padding: 1.1rem;
+  background: var(--amber);
+  color: var(--text);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(245,166,35,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(245,166,35,0.45); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text);
+  color: white;
+  padding: 2.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; }
+.footer-brand em { font-style: italic; color: var(--amber); }
+footer p { font-size: 0.82rem; opacity: 0.5; }
+footer a { color: var(--amber); text-decoration: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { max-width: 500px; }
+  .area-layout { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .faq-layout { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 768px) {
+  nav { display: none; }
+  .logo-area img { height: 64px; }
+  header { padding: 0.7rem 1.2rem; }
+  .hero { padding: 3rem 1.2rem 2.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .steps-row { grid-template-columns: 1fr; gap: 1rem; }
+  .step-card::after { display: none; }
+  .uses-grid { grid-template-columns: repeat(2,1fr); }
+  .inc-grid { grid-template-columns: repeat(2,1fr); }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .trust-inner { grid-template-columns: repeat(2,1fr); }
+  .cta-row { flex-direction: column; }
+  .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+  .wg-banner, .airport-callout { flex-direction: column; text-align: center; }
+  footer { flex-direction: column; text-align: center; }
+  .section { padding: 3.5rem 1.2rem; }
+}
+</style>
 </head>
 <body>
- 
-    <div class="sw-strip-fixed"></div>
- 
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="finallogo.png" alt="Central Park Hill Mobility Rentals Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="logo-text" style="display:none;">CPH Mobility<span>Rentals · Denver, CO</span></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#how">How It Works</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="tel:+13036162468" class="phone-btn"><i class="fas fa-phone"></i> (303) 616-2468 </a>
-        </nav>
-    </header>
- 
-    <!-- ── HERO ── -->
-    <section class="hero" id="home">
-        <div class="hero-inner">
-            <div>
-                <div class="hero-badge"><i class="fas fa-map-marker-alt"></i> &nbsp;Serving Central Park, Park Hill & NE Denver</div>
-                <h1>Get Moving Again — <em>Without the Hassle</em></h1>
-                <p class="subheadline">Clean, fully charged mobility scooters delivered straight to your door. Perfect for visiting grandparents, post-surgery recovery, or anyone who wants to keep up with the family.</p>
-                <ul class="hero-list">
-                    <li><i class="fas fa-check-circle"></i> Delivered clean, charged & ready to go</li>
-                    <li><i class="fas fa-check-circle"></i> Disassembles to fit in most SUVs & minivans</li>
-                    <li><i class="fas fa-check-circle"></i> No deposit. No credit check.</li>
-                    <li><i class="fas fa-check-circle"></i> Flexible delivery & pickup — 7 days a week</li>
-                </ul>
-                <a href="#contact" class="cta-main">Check Availability</a>
-                <p class="hero-tiny-line">We respond within 24 hours — often much sooner</p>
-            </div>
-            <div class="hero-card">
-                <h3>Simple, Honest Pricing</h3>
-                <div class="hero-plan">
-                    <div class="hero-plan-name">2-Week Rental</div>
-                    <div class="hero-plan-price">$239 <small>flat</small></div>
-                </div>
-                <div class="hero-plan">
-                    <div class="hero-plan-name">1-Month Rental</div>
-                    <div class="hero-plan-price">$299 <small>flat</small></div>
-                </div>
-                <p class="hero-card-note">Delivery, charger & pickup all included. No hidden fees.</p>
-            </div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  🌞 Serving Central Park, Park Hill & NE Denver &nbsp;·&nbsp;
+  <span>Same-day delivery may be available — contact us to confirm</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-area">
+    <img src="logo4.png" alt="Central Park Hill Mobility Rentals"
+         onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block'">
+    <div class="logo-fallback">Central Park Hill<br><span style="font-size:0.75rem; font-family:Nunito,sans-serif; font-weight:700; color:var(--text-light); letter-spacing:0.05em;">MOBILITY RENTALS</span></div>
+  </div>
+  <nav>
+    <a href="#how">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="tel:+13036162468" class="call-btn"><i class="fas fa-phone"></i> (303) 616-2468</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-location"><i class="fas fa-map-marker-alt"></i> Central Park · Park Hill · NE Denver</div>
+      <h1>Keep everyone <em>included</em> in the moments that matter.</h1>
+      <p class="hero-desc">Clean, fully charged mobility scooters delivered to your home, hotel, or short-term rental throughout NE Denver. For family visits, recovery, special occasions, and everyday getting around.</p>
+      <ul class="hero-checklist">
+        <li><span class="check-bubble">✓</span> Delivered clean, charged & ready to go</li>
+        <li><span class="check-bubble">✓</span> Simple rental agreement — no credit check</li>
+        <li><span class="check-bubble">✓</span> We set it up & show you how — at your door</li>
+        <li><span class="check-bubble">✓</span> Flexible delivery & pickup, 7 days a week</li>
+      </ul>
+      <div class="hero-cta-group">
+        <div class="cta-row">
+          <a href="#contact" class="btn-primary">Check Availability</a>
+          <a href="tel:+13036162468" class="btn-secondary"><i class="fas fa-phone"></i> Call or Text Us</a>
         </div>
-    </section>
- 
-    <!-- ── HOW IT WORKS ── -->
-    <section class="section how-bg" id="how">
-        <div class="container">
-            <div class="text-center">
-                <div class="section-tag">Simple Process</div>
-                <h2 class="section-title">How It Works</h2>
-                <p class="section-subtitle">Three easy steps and you're rolling — literally.</p>
-            </div>
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
-                    <h3>Fill Out the Form</h3>
-                    <p>Tell us your dates, delivery address, and a bit about the rider. We'll confirm availability and finalize everything before you're charged.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-icon"><i class="fas fa-truck"></i></div>
-                    <h3>We Deliver to Your Door</h3>
-                    <p>We bring a fully cleaned, charged, and inspected scooter right to you — at a time that works for your schedule, 7 days a week.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-icon"><i class="fas fa-smile-beam"></i></div>
-                    <h3>Ride & Enjoy</h3>
-                    <p>Hit the Denver Zoo, Botanic Gardens, Red Rocks, or just the neighborhood. We pick it up when you're done — on your timeline.</p>
-                </div>
-            </div>
- 
-            <!-- White Glove callout -->
-            <div class="white-glove-bar">
-                <div class="wg-icon"><i class="fas fa-hands-helping"></i></div>
-                <div class="wg-text">
-                    <h4>White Glove Delivery — Always Included</h4>
-                    <p>We don't just drop off the scooter at the door. We bring it in, make sure it's set up and ready, and walk the rider through exactly how to use it safely. <strong>No guesswork. No instruction manuals. Just confidence from the first ride.</strong></p>
-                </div>
-            </div>
+        <span class="hero-reassurance"><i class="fas fa-bolt"></i> We respond within 24 hours — often much sooner</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="scooter-img-box">
+        <img src="scooter.png" alt="Pride Go-Go Elite Traveler mobility scooter"
+             onerror="this.parentElement.style.background='var(--sky-pale)'; this.parentElement.style.minHeight='200px'; this.style.display='none'">
+        <div class="scooter-img-caption">Pride Go-Go Elite Traveler — our featured model</div>
+      </div>
+      <div class="price-cards">
+        <div class="price-float">
+          <div>
+            <div class="pf-label">2-Week Rental</div>
+            <div class="pf-name">Short-Term</div>
+            <div class="pf-note">Delivery, charger & pickup included</div>
+          </div>
+          <div class="pf-price">$239</div>
         </div>
-    </section>
- 
-    <!-- ── PRICING ── -->
-    <section class="section pricing-bg" id="pricing">
-        <div class="container">
-            <div class="text-center">
-                <div class="section-tag">Pricing</div>
-                <h2 class="section-title">Simple, All-In Pricing</h2>
-                <p class="section-subtitle">No deposits. No hidden fees. What you see is what you pay.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="plan-name">2-Week Rental</div>
-                    <div class="price">$239</div>
-                    <div class="price-duration">for 14 days</div>
-                    <ul class="benefits-list">
-                        <li>White glove delivery & walkthrough</li>
-                        <li>Fully cleaned & sanitized</li>
-                        <li>Fully charged on arrival</li>
-                        <li>Charger included</li>
-                        <li>Fits in most SUVs & minivans</li>
-                        <li>Support if anything comes up</li>
-                        <li>Flexible pickup scheduling</li>
-                    </ul>
-                    <button class="plan-select-btn" onclick="selectPlan('2-Week Rental ($239)')">Get Started</button>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="featured-badge">Best Value</div>
-                    <div class="plan-name">1-Month Rental</div>
-                    <div class="price">$299</div>
-                    <div class="price-duration">for 30 days</div>
-                    <ul class="benefits-list">
-                        <li>White glove delivery & walkthrough</li>
-                        <li>Fully cleaned & sanitized</li>
-                        <li>Fully charged on arrival</li>
-                        <li>Charger included</li>
-                        <li>Fits in most SUVs & minivans</li>
-                        <li>Support if anything comes up</li>
-                        <li>Flexible pickup scheduling</li>
-                        <li>More time = more flexibility</li>
-                    </ul>
-                    <button class="plan-select-btn featured-btn" onclick="selectPlan('1-Month Rental ($299)')">Get Started</button>
-                </div>
-            </div>
-            <p style="text-align:center; margin-top: 2rem; color: var(--text-light); font-size: 0.9rem;">Minimum rental is 2 weeks. Need something different? <a href="#contact" style="color: var(--co-blue-dark); font-weight: 600;">Contact us</a> and we'll work something out.</p>
+        <div class="price-float amber">
+          <div>
+            <div class="pf-label">1-Month Rental</div>
+            <div class="pf-name">Extended Stay</div>
+            <div class="pf-note">Delivery, charger & pickup included</div>
+            <div class="best-chip">Best Value</div>
+          </div>
+          <div class="pf-price">$299</div>
         </div>
-    </section>
- 
-    <!-- ── USE CASES ── -->
-    <section class="section uses-bg">
-        <div class="container">
-            <div class="text-center">
-                <div class="section-tag">Who Rents From Us</div>
-                <h2 class="section-title">When a Scooter Makes All the Difference</h2>
-                <p class="section-subtitle">From family visits to adventures across Denver — here's when our customers reach out.</p>
-            </div>
-            <div class="uses-grid">
-                <div class="use-card">
-                    <i class="fas fa-user-graduate"></i>
-                    <h4>Graduation & Family Visits</h4>
-                    <p>Grandparents in town for the big event? Keep everyone together and moving comfortably.</p>
-                </div>
-                <div class="use-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h4>Post-Surgery Recovery</h4>
-                    <p>Knee replacement, hip surgery, or a foot injury? Stay mobile at home and beyond during recovery.</p>
-                </div>
-                <div class="use-card">
-                    <i class="fas fa-paw"></i>
-                    <h4>Denver Zoo</h4>
-                    <p>Miles of walking made easy. Enjoy the whole zoo without wearing anyone out.</p>
-                </div>
-                <div class="use-card">
-                    <i class="fas fa-leaf"></i>
-                    <h4>Botanic Gardens</h4>
-                    <p>Stroll the stunning gardens at your own pace — no rushing, no fatigue.</p>
-                </div>
-                <div class="use-card">
-                    <i class="fas fa-music"></i>
-                    <h4>Red Rocks & Events</h4>
-                    <p>Concerts, outdoor events, and festivals are more accessible than you think.</p>
-                </div>
-                <div class="use-card">
-                    <i class="fas fa-plane-departure"></i>
-                    <h4>Denver Airport (DIA)</h4>
-                    <p>One of the largest airports in the world. A scooter makes long terminal walks stress-free.</p>
-                </div>
-                <div class="use-card">
-                    <i class="fas fa-store"></i>
-                    <h4>Costco & Big-Box Errands</h4>
-                    <p>Large stores are exhausting without mobility support. Rent for the week and shop with ease.</p>
-                </div>
-                <div class="use-card">
-                    <i class="fas fa-mountain"></i>
-                    <h4>Rocky Mountain Day Trips</h4>
-                    <p>Visitor centers, scenic paved paths, and national park stops are all within reach.</p>
-                </div>
-            </div>
+      </div>
+      <div class="hero-card-note">
+        <strong>Clear pricing confirmed before booking.</strong>
+        Deposits not normally required. No credit check.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="trust-num">No</span>
+      <div class="trust-label">Standard Security<br>Deposit</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">7</span>
+      <div class="trust-label">Days a Week<br>Delivery & Pickup</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">24h</span>
+      <div class="trust-label">Response Time<br>(Usually Faster)</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">★★★★★</span>
+      <div class="trust-label">Google Reviews<br>from Denver Families</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section how-bg" id="how">
+  <div class="section-inner">
+    <div class="text-center">
+      <div class="tag-pill">Simple Process</div>
+      <h2>How it works — <em>three easy steps</em></h2>
+      <p class="lead">We make it as simple as possible. No confusing contracts, no complicated process, no surprises.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-circle">1</div>
+        <h3>Fill Out the Form</h3>
+        <p>Tell us your dates, delivery address, and a bit about the rider. We'll confirm availability and answer any questions before anything is finalized.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-circle">2</div>
+        <h3>We Come to You</h3>
+        <p>We bring a fully cleaned, charged scooter right to your home, hotel, rehab center, or short-term rental — at a time that works for you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-circle">3</div>
+        <h3>Ride & Enjoy</h3>
+        <p>The neighborhood, the Stanley, the Denver Zoo, Red Rocks — wherever life takes you. We pick it up when you're done, on your schedule.</p>
+      </div>
+    </div>
+    <div class="wg-banner">
+      <div class="wg-emoji">🤝</div>
+      <div class="wg-text">
+        <h4>White-Glove Setup — Always Included</h4>
+        <p>We don't just drop the scooter at the door. We bring it in, make sure everything is set up properly, and <strong>walk the rider through exactly how to use it</strong> before we leave. No guesswork, no instruction manuals — just confidence from the very first ride.</p>
+      </div>
+    </div>
+    <div class="airport-callout">
+      <div class="airport-icon">✈️</div>
+      <div class="airport-text">
+        <h4>We Meet You Where You Need Us — Including Denver International Airport</h4>
+        <p>Flying someone into Denver? We can coordinate delivery to meet them right when they land, so they have their scooter from the moment they arrive in the city. Just let us know your travel details and we'll handle the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="section uses-bg" id="pricing">
+  <div class="section-inner">
+    <div class="text-center">
+      <div class="tag-pill">Who Rents From Us</div>
+      <h2>When a scooter makes <em>all the difference</em></h2>
+      <p class="lead">Every rental tells a story. Here are the ones we hear most.</p>
+    </div>
+    <div class="uses-grid">
+      <div class="use-card">
+        <span class="use-emoji">🎓</span>
+        <h4>Weddings, Graduations & Special Occasions</h4>
+        <p>Keep grandma on the dance floor and grandpa in the front row. Don't let mobility slow down the moments that matter most.</p>
+      </div>
+      <div class="use-card">
+        <span class="use-emoji">❤️‍🩹</span>
+        <h4>Injury, Surgery & Recovery</h4>
+        <p>Post-surgery, a temporary injury, or waiting on insurance to come through — stay mobile and independent while you heal.</p>
+      </div>
+      <div class="use-card">
+        <span class="use-emoji">🏡</span>
+        <h4>Visiting Grandparents & Family Stays</h4>
+        <p>Mom or dad visiting and not as mobile as they used to be? A scooter means they can join the family on errands, walks, and outings — not just sit at home.</p>
+      </div>
+      <div class="use-card">
+        <span class="use-emoji">🛒</span>
+        <h4>Everyday Getting Around</h4>
+        <p>King Soopers, Walmart, the Stanley, the neighborhood — for those who need a little extra help keeping up with daily life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews-bg" id="reviews">
+  <div class="section-inner">
+    <div class="text-center">
+      <div class="tag-pill">What Customers Say</div>
+      <h2>Real families. <em>Real stories.</em></h2>
+      <p class="lead">Don't take our word for it — here's what Denver families are saying on Google.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">My mom visited us here in Denver — she is not a big walker, so I rented a scooter from Central Park Hill Mobility Rentals. It was the best thing I could have done. The scooter allowed my mom to move around as we enjoyed the sights around downtown. Thank you for being there for my mom and helping her enjoy this trip to the maximum.</div>
+        <div class="reviewer">
+          <div class="reviewer-initial">J</div>
+          <div>
+            <div class="reviewer-name">James Beemon</div>
+            <div class="reviewer-tag">Denver, CO</div>
+          </div>
         </div>
-    </section>
- 
-    <!-- ── WHAT'S INCLUDED ── -->
-    <section class="section included-bg">
-        <div class="container">
-            <div class="text-center">
-                <div class="section-tag">Everything Included</div>
-                <h2 class="section-title">Everything You Need. Nothing Extra.</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.72);">Every rental comes fully set up and ready to go — no surprises.</p>
-            </div>
-            <div class="included-grid">
-                <div class="included-item">
-                    <i class="fas fa-battery-full"></i>
-                    <h4>Fully Charged</h4>
-                    <p>Scooter arrives with a full charge so you can start right away.</p>
-                </div>
-                <div class="included-item">
-                    <i class="fas fa-spray-can"></i>
-                    <h4>Cleaned & Sanitized</h4>
-                    <p>Every unit is thoroughly cleaned and sanitized before delivery.</p>
-                </div>
-                <div class="included-item">
-                    <i class="fas fa-plug"></i>
-                    <h4>Charger Included</h4>
-                    <p>We leave the charger with you for the entire rental period.</p>
-                </div>
-                <div class="included-item">
-                    <i class="fas fa-hands-helping"></i>
-                    <h4>White Glove Setup</h4>
-                    <p>We walk the rider through the scooter in person so they're confident from day one.</p>
-                </div>
-                <div class="included-item">
-                    <i class="fas fa-headset"></i>
-                    <h4>Local Support</h4>
-                    <p>Reachable by phone or text 7 days a week if anything comes up.</p>
-                </div>
-                <div class="included-item">
-                    <i class="fas fa-car"></i>
-                    <h4>Travel-Ready</h4>
-                    <p>Disassembles to fit in most SUVs, minivans, and hatchbacks.</p>
-                </div>
-            </div>
+        <div class="google-badge"><i class="fab fa-google"></i> Verified Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">My mom was visiting Denver and we wanted a motorized scooter to help her get around for the weekend. Central Park Hill Mobility Rentals responded so quickly and even delivered and picked up the scooter. They took the time to explain how everything worked and came apart to fit in a vehicle. It was so easy and I would highly recommend them. We will use them again in the future if the need arises.</div>
+        <div class="reviewer">
+          <div class="reviewer-initial" style="background:var(--sage);">E</div>
+          <div>
+            <div class="reviewer-name">Emily Grant</div>
+            <div class="reviewer-tag">Local Guide · Denver, CO</div>
+          </div>
         </div>
-    </section>
- 
-    <!-- ── SERVICE AREA ── -->
-    <section class="section area-bg" id="area">
-        <div class="container">
-            <div class="area-layout">
-                <div>
-                    <div class="section-tag">Service Area</div>
-                    <h2 class="section-title">Rooted in the Neighborhood</h2>
-                    <p style="color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.8;">We're based in Central Park and serve the broader NE Denver community. Our core service area includes:</p>
-                    <ul class="area-list">
-                        <li><i class="fas fa-circle"></i> Central Park</li>
-                        <li><i class="fas fa-circle"></i> Park Hill</li>
-                        <li><i class="fas fa-circle"></i> Northfield</li>
-                        <li><i class="fas fa-circle"></i> NE Denver</li>
-                        <li><i class="fas fa-circle"></i> Denver Airport Area</li>
-                        <li><i class="fas fa-circle"></i> Aurora</li>
-                        <li><i class="fas fa-circle"></i> Commerce City</li>
-                        <li><i class="fas fa-circle"></i> Thornton</li>
-                    </ul>
-                    <div class="area-note">
-                        <strong>Outside the core area?</strong> You may still be served. Delivery fees or longer rental minimums may apply for customers further out. <a href="#contact" style="color: var(--co-blue-dark); font-weight: 600;">Message us your location</a> and we'll confirm.
-                    </div>
-                </div>
-                <div class="area-map">
-                    <img src="servicemap.jpg" alt="CPH Mobility Rentals service area map covering Central Park, Park Hill, NE Denver and surrounding areas"
-                         onerror="this.src=''; this.alt='Service area map — roughly a 20-minute radius from Central Park, Denver'">
-                </div>
-            </div>
+        <div class="google-badge"><i class="fab fa-google"></i> Verified Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">Great service! A beautiful red scooter helped with shopping at King Soopers, errands at Walmart, and cruising Sloans Lake. Easy drop-off and pick-up service. Will use again if needed.</div>
+        <div class="reviewer">
+          <div class="reviewer-initial" style="background:var(--amber-dark);">W</div>
+          <div>
+            <div class="reviewer-name">Will Santos</div>
+            <div class="reviewer-tag">Denver, CO</div>
+          </div>
         </div>
-    </section>
- 
-    <!-- ── FAQ ── -->
-    <section class="section faq-bg" id="faq">
-        <div class="container">
-            <div class="text-center">
-                <div class="section-tag">Questions</div>
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Everything you need to know before you rent.</p>
-            </div>
-            <div class="faq-container">
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">How do I reserve a scooter? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Contact us with your rental dates, delivery location, the rider's approximate weight, where the scooter will mainly be used, and whether you plan to transport it in a vehicle. We'll confirm availability, fit, pricing, and delivery details before finalizing the rental.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">What areas do you serve? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Our core service area includes Central Park, Park Hill, Northfield, NE Denver, and the Denver Airport area. Customers outside the core area may still be served depending on rental length, delivery distance, availability, or self-pickup options. Message us your location and dates and we'll confirm availability.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Is delivery included? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Yes. Delivery, white glove setup, charger, and pickup are all included within our core service area. We bring the scooter to your home, hotel, short-term rental, rehab location, or another approved location — and we walk the rider through how to use it before we leave. We schedule around your availability, including evenings and weekends.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">How quickly do you respond to inquiries? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">We respond to all inquiries within 24 hours — and usually much sooner. We're a local, owner-operated business and we take every request seriously. For urgent needs, call or text us directly at (303) 500-7444 and we'll do our best to accommodate you right away.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Can I pick up the scooter myself? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Yes, customer pickup may be available by arrangement. Pickup does not automatically reduce the rental price because the scooter is still cleaned, charged, reserved for your dates, inspected, and supported during the rental.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Will the scooter fit in my car? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Many travel scooters can be taken apart into smaller pieces and fit in most SUVs, minivans, hatchbacks, and some larger trunks. Smaller sedans may not have enough space. Tell us your vehicle type when you contact us and we can help you decide whether transport is realistic.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Where can the scooter be used? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Our scooters are best for normal everyday use on smooth, stable surfaces such as sidewalks, paved paths, airports, hotels, museums, shopping areas, medical appointments, and events. They should not be used on stairs, sand, mud, steep hills, deep gravel, grass, or unsafe or uneven terrain.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">What happens if the scooter has an issue during my rental? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Contact us right away by phone or text. We'll troubleshoot with you and work to resolve the issue as quickly as possible. If the scooter becomes unusable due to a mechanical, battery, charger, or electrical issue not caused by customer damage, misuse, improper charging, or unsafe use, we will provide a replacement when available, repair the issue, or provide a fair credit or refund for the unused portion of the rental.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Do you require a deposit? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">We do not require a deposit by default. However, a deposit may be required in certain situations based on rental length, delivery distance, or other factors. Customers are responsible for damage, loss, theft, missing accessories, or misuse.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">How do payments work? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Payment is due before or at delivery unless otherwise agreed. We accept all major credit and debit cards. For longer rentals, automatic monthly payments may be required.</div>
-                </div>
- 
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">Can I rent a scooter for someone else? <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="faq-answer">Absolutely. Many customers rent scooters for a parent, grandparent, spouse, visiting family member, or someone recovering from surgery or injury. The person arranging the rental is responsible for payment, return, and making sure the rider uses the scooter safely.</div>
-                </div>
- 
-            </div>
+        <div class="google-badge"><i class="fab fa-google"></i> Verified Google Review</div>
+      </div>
+
+    </div>
+    <div class="reviews-summary">
+      ★★★★★ 5.0 · All reviews on <a href="https://maps.app.goo.gl/LRz4FGoUyduD3yCB7" target="_blank" rel="noopener">Google Business Profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="section included-bg">
+  <div class="section-inner">
+    <div class="text-center">
+      <div class="inc-tag">Every Rental Includes</div>
+      <h2>Everything you need. <em>Nothing extra.</em></h2>
+      <p class="lead">Every rental comes fully set up and ready to go — no surprise fees, no add-ons.</p>
+    </div>
+    <div class="inc-grid">
+      <div class="inc-card"><span class="inc-emoji">⚡</span><h4>Fully Charged</h4><p>Arrives with a full charge. Start your rental the moment we leave.</p></div>
+      <div class="inc-card"><span class="inc-emoji">✨</span><h4>Cleaned & Sanitized</h4><p>Every unit thoroughly cleaned and sanitized before each delivery.</p></div>
+      <div class="inc-card"><span class="inc-emoji">🔌</span><h4>Charger Included</h4><p>We leave the charger with you for the entire rental period.</p></div>
+      <div class="inc-card"><span class="inc-emoji">🤝</span><h4>White-Glove Setup</h4><p>We walk the rider through everything in person — confidence from day one.</p></div>
+      <div class="inc-card"><span class="inc-emoji">📞</span><h4>Local Support</h4><p>Reachable by phone or text, 7 days a week. Real people, real answers.</p></div>
+      <div class="inc-card"><span class="inc-emoji">🚗</span><h4>Travel-Ready</h4><p>Disassembles to fit in most SUVs, minivans, and hatchbacks.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="section area-bg">
+  <div class="section-inner">
+    <div class="area-layout">
+      <div>
+        <div class="tag-pill">Service Area</div>
+        <h2>Rooted right <em>here</em> in the neighborhood</h2>
+        <p style="color:var(--text-mid); line-height:1.8; margin-bottom:1.5rem; font-size:1rem; font-weight:600;">We're based in Central Park and serve the broader NE Denver community. Delivery is included within our core service area.</p>
+        <div class="area-chips">
+          <span class="chip core">Central Park</span>
+          <span class="chip core">Park Hill</span>
+          <span class="chip core">Northfield</span>
+          <span class="chip core">NE Denver</span>
+          <span class="chip core">Denver Airport Area</span>
+          <span class="chip outer">Aurora</span>
+          <span class="chip outer">Commerce City</span>
+          <span class="chip outer">Thornton</span>
         </div>
-    </section>
- 
-    <!-- ── CONTACT ── -->
-    <section class="section contact-bg" id="contact">
-        <div class="container">
-            <div class="contact-layout">
-                <div class="contact-info">
-                    <div class="section-tag">Get in Touch</div>
-                    <h2>Check Availability in Your Area</h2>
-                    <p>Fill out the form and we'll get back to you quickly to confirm availability, answer any questions, and finalize your rental. Takes less than 2 minutes.</p>
-                    <div class="contact-detail">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+13036162468">(303) 616-2468</a>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:cphmobilityrentals@gmail.com">cphmobilityrentals@gmail.com</a>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span style="color: var(--text-light);">Central Park, Denver, CO</span>
-                    </div>
-                    <div class="response-promise">
-                        <strong><i class="fas fa-bolt" style="color: var(--zia-red);"></i> &nbsp;We respond within 24 hours — usually much sooner.</strong>
-                        We're a local, owner-operated business — not a call center. We schedule delivery and pickup around <em>your</em> availability, including evenings and weekends. No store hours. No runaround.
-                    </div>
-                </div>
- 
-                <div class="contact-form-box">
-                    <h3>Reserve Your Scooter</h3>
-                    <p class="form-sub">No obligation. We'll confirm everything before you're charged.</p>
-                    <form action="https://formspree.io/f/mykrboww" method="POST" id="rentalForm">
-                        <div class="form-group"><label>Full Name</label><input type="text" name="name" required placeholder="Your name"></div>
-                        <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" required placeholder="(303) 555-0000"></div>
-                        <div class="form-group"><label>Email Address</label><input type="email" name="email" required placeholder="you@email.com"></div>
-                        <div class="form-group"><label>Delivery Address</label><input type="text" name="address" required placeholder="Street, City, Zip"></div>
-                        <div class="form-group"><label>Rental Plan</label>
-                            <select name="plan" id="planSelector">
-                                <option value="1-Month Rental ($299)">1-Month Rental — $299</option>
-                                <option value="2-Week Rental ($239)">2-Week Rental — $239</option>
-                            </select>
-                        </div>
-                        <div class="form-group"><label>Rental Start Date (Approximate)</label><input type="text" name="start_date" placeholder="e.g. June 15"></div>
-                        <div class="form-group"><label>Message / Questions (Optional)</label>
-                            <textarea name="message" rows="3" placeholder="Tell us about the rider, your vehicle type, preferred delivery time, etc."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Request Availability →</button>
-                    </form>
-                </div>
-            </div>
+        <div class="area-note">
+          <strong>Outside the core area?</strong> You may still be served — delivery fees or longer rental minimums may apply for customers further out. <a href="#contact" style="color:var(--sky-deep); font-weight:800;">Message us your location</a> and we'll confirm right away.
         </div>
-    </section>
- 
-    <div class="sw-strip"></div>
- 
-    <footer>
-        <p>&copy; 2026 Central Park Hill Mobility Rentals. Proudly serving NE Denver and surrounding communities.</p>
-        <p style="margin-top: 0.5rem;"><a href="tel:+13036162468">(303) 616-2468</a> &nbsp;·&nbsp; <a href="mailto:cphmobilityrentals@gmail.com">cphmobilityrentals@gmail.com</a></p>
-    </footer>
- 
-    <script>
-        function selectPlan(planValue) {
-            document.getElementById('planSelector').value = planValue;
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
- 
-        const form = document.getElementById("rentalForm");
-        form.addEventListener("submit", async function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const submitButton = form.querySelector('button[type="submit"]');
-            submitButton.textContent = "Sending...";
-            submitButton.disabled = true;
-            try {
-                const response = await fetch(form.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    window.location.href = "https://cphmobilityrentals.github.io/success.html";
-                } else {
-                    const data = await response.json();
-                    alert("Oops! There was a problem: " + (data.error || "Please try again."));
-                    submitButton.textContent = "Request Availability →";
-                    submitButton.disabled = false;
-                }
-            } catch (error) {
-                alert("Oops! Network error. Please check your connection.");
-                submitButton.textContent = "Request Availability →";
-                submitButton.disabled = false;
-            }
-        });
- 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.getElementById(this.getAttribute('href').substring(1));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
+      </div>
+      <div class="area-map">
+        <img src="servicemap.jpg" alt="CPH Mobility Rentals service area map — NE Denver and surrounding communities"
+             onerror="this.parentElement.style.background='var(--sky-pale)'; this.parentElement.style.minHeight='320px'; this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-bg" id="faq">
+  <div class="section-inner">
+    <div class="faq-layout">
+      <div class="faq-left">
+        <div class="tag-pill">Questions</div>
+        <h2>Got <em>questions?</em><br>We've got answers.</h2>
+        <p>Everything you need to know before you rent. And if you don't see your question here — just call or text us directly. We're friendly, we promise.</p>
+        <div class="faq-direct">
+          <p>Prefer to just talk to a real person?</p>
+          <a href="tel:+13036162468">📞 Call (303) 616-2468</a>
+        </div>
+      </div>
+      <div>
+        <div class="faq-item open" onclick="toggleFaq(this)">
+          <div class="faq-q">How do I reserve a scooter? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Fill out the form below with your rental dates, delivery address, and a bit about the rider. We'll confirm availability, answer any questions, and finalize everything before you're charged. No surprises.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Is delivery really included? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Yes — completely. Delivery, white-glove setup, the charger, and pickup at the end are all included within our core service area. We schedule around your availability, including evenings and weekends.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How quickly will you respond to my inquiry? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Within 24 hours — and usually much sooner. We're owner-operated and take every request personally. For urgent needs, call or text us directly at (303) 616-2468.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Do I need to put down a deposit or go through a credit check? <div class="faq-icon">+</div></div>
+          <div class="faq-a">No credit check required. A security deposit is not normally required, though one may be requested in certain situations. We'll always be upfront with you about any requirements before you commit to anything.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Will the scooter fit in my car? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Most of our travel scooters disassemble and fit in SUVs, minivans, and hatchbacks. Smaller sedans may not have enough trunk space. Just tell us your vehicle type when you reach out and we'll help you figure it out — we even show you how to take it apart at delivery.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Can I pick up the scooter instead of having it delivered? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Yes, customer pickup may be available by arrangement. Keep in mind the rental price doesn't automatically change for pickup — the scooter is still cleaned, charged, inspected, and supported throughout your rental.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What if something goes wrong during my rental? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Call or text us right away and we'll troubleshoot with you. If the scooter becomes unusable due to a mechanical issue — not caused by damage or misuse — we'll work to provide a replacement, arrange a repair, or give a fair credit or refund for the unused portion of your rental.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Can I rent a scooter for someone else? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Absolutely — this is one of the most common situations we see. Many customers rent for a parent, grandparent, or someone recovering from surgery. The person arranging the rental is responsible for payment, safe use, and return of the equipment.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Where can the scooter be used? <div class="faq-icon">+</div></div>
+          <div class="faq-a">Our scooters work great on smooth, stable surfaces — sidewalks, paved paths, shopping centers, airports, hotels, parks, and more. They're not designed for stairs, steep hills, sand, mud, deep gravel, or rough terrain.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="tag-pill">Get in Touch</div>
+        <h2>Let's get you <em>moving.</em></h2>
+        <p class="desc">Fill out the short form and we'll confirm availability, answer any questions, and get your rental sorted out. Takes less than 2 minutes.</p>
+        <div class="contact-method">
+          <div class="cm-icon">📞</div>
+          <div>
+            <div class="cm-label">Call or Text</div>
+            <div class="cm-value"><a href="tel:+13036162468">(303) 616-2468</a></div>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="cm-icon">✉️</div>
+          <div>
+            <div class="cm-label">Email</div>
+            <div class="cm-value"><a href="mailto:cphmobilityrentals@gmail.com">cphmobilityrentals@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="cm-icon">📍</div>
+          <div>
+            <div class="cm-label">Based In</div>
+            <div class="cm-value">Central Park, Denver, CO</div>
+          </div>
+        </div>
+        <div class="promise-box">
+          <h4>We respond within 24 hours — <em>usually much sooner.</em></h4>
+          <p>We're a local, owner-operated business — not a call center. We schedule delivery and pickup around your availability, including evenings and weekends. No store hours. No runaround. Just real help from real neighbors.</p>
+        </div>
+      </div>
+      <div class="form-box">
+        <h3>Check Availability</h3>
+        <p class="sub">No obligation — pricing confirmed before you're charged.</p>
+        <form action="https://formspree.io/f/mykrboww" method="POST" id="rentalForm">
+          <div class="field">
+            <label>Your Name</label>
+            <input type="text" name="name" required placeholder="First and last name">
+          </div>
+          <div class="field">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" required placeholder="(303) 555-0000">
+          </div>
+          <div class="field">
+            <label>Rental Dates (Approximate)</label>
+            <input type="text" name="dates" required placeholder="e.g. June 15 – June 29">
+          </div>
+          <div class="field">
+            <label>Delivery ZIP Code</label>
+            <input type="text" name="zip" required placeholder="e.g. 80238">
+          </div>
+          <div class="field">
+            <label>Rental Plan</label>
+            <select name="plan">
+              <option value="1-Month Rental ($299)">1-Month Rental — $299 (Best Value)</option>
+              <option value="2-Week Rental ($239)">2-Week Rental — $239</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>About the Rider & Any Questions (Optional)</label>
+            <textarea name="message" rows="3" placeholder="Rider's needs, vehicle type for transport, preferred delivery time, questions..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Request Availability →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Central Park Hill <em>Mobility Rentals</em></div>
+  <p>
+    &copy; 2026 &nbsp;·&nbsp;
+    <a href="tel:+13036162468">(303) 616-2468</a> &nbsp;·&nbsp;
+    <a href="mailto:cphmobilityrentals@gmail.com">cphmobilityrentals@gmail.com</a> &nbsp;·&nbsp;
+    Central Park, Denver CO
+  </p>
+</footer>
+
+<script>
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.getElementById(this.getAttribute('href').substring(1));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Formspree AJAX submit
+const form = document.getElementById('rentalForm');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        window.location.href = 'https://cphmobilityrentals.github.io/success.html';
+      } else {
+        const data = await res.json();
+        alert('Something went wrong: ' + (data.error || 'Please try again.'));
+        btn.textContent = 'Request Availability →';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      alert('Network error. Please check your connection and try again.');
+      btn.textContent = 'Request Availability →';
+      btn.disabled = false;
+    }
+  });
+}
+</script>
 </body>
 </html>
